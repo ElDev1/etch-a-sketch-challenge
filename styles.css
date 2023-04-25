@@ -4,5 +4,57 @@ main {
     justify-content: center;
     gap: 50px;
     align-items: center;
+    background-color: #ededed;
 }
 
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.color-pick {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+input::-webkit-color-swatch {
+    border: none;
+}
+
+.color-input {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: #a52a2a 0% 0% no-repeat padding-box;
+
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: ease 0.09s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.color-mode-button {
+    background-color: #333333;
+    color: white;
+    border: none;
+}
+
+.range-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
