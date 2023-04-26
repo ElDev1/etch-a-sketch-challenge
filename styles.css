@@ -55,7 +55,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-.color-mode-button {
+.selected {
     background-color: #333333;
     color: white;
     border: none;
