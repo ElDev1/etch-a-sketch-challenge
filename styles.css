@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
 main {
     height: 100vh;
     display: flex;
@@ -57,4 +65,21 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.range-input {
+    width: 150px;
+}
+
+.sketch-panel h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.drawing-tablet {
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
