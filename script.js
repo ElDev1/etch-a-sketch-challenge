@@ -25,7 +25,16 @@ const rangeInput = document.querySelector('.range-input');
 const rangeCounter = document.querySelector('.range-selector p');
 
 rangeInput.addEventListener('input', () => {
-    range = rangeInput.value
-    rangeCounter.textContent = `${range} x ${range}`
-    console.log(range)
+    range = rangeInput.value;
+    rangeCounter.textContent = `${range} x ${range}`;
 })
+
+const colorPick = document.querySelector('.color-pick');
+const colorInput = document.querySelector('.color-input');
+
+colorInput.addEventListener('input', () => {
+    color = colorInput.value;
+    colorInput.style.cssText = `background: ${color}`;
+})
+
+
