@@ -2,6 +2,9 @@
 let selected = 'Color mode';
 let range = 1;
 let color = '#A52A2A';
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
 // buttons
 const buttons = document.querySelectorAll('button');
@@ -9,11 +12,11 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         selected = button.textContent;
-        if(button.classList === 'selected') return;
+        if (button.classList === 'selected') return;
         button.classList.add("selected");
 
         buttons.forEach(elem => {
-            if(button.classList !== elem.classList) {
+            if (button.classList !== elem.classList) {
                 elem.classList.remove('selected');
             }
         });
@@ -34,12 +37,25 @@ rangeInput.addEventListener('input', () => {
     for(let i = 0; i < range ** 2; i++) {
         const pixel = document.createElement('div');
         pixel.style.flexBasis = `calc(100% / ${range})`;
-        pixel.addEventListener('mousedown', () => {
-            pixel.style.backgroundColor = `${color}`;
-        })
+        pixel.addEventListener('mouseover', changeColor)
+        pixel.addEventListener('mousedown', changeColor)
         drawingTablet.appendChild(pixel);
     }
 })
+
+function changeColor(e) {
+    if (e.type === 'mouseover' && !mouseDown) return;
+    if (selected === 'Rainbow mode') {
+        const randomR = Math.floor(Math.random() * 256);
+        const randomG = Math.floor(Math.random() * 256);
+        const randomB = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    } else if (selected === 'Color mode') {
+        e.target.style.backgroundColor = color;
+    } else if (selected === 'Eraser') {
+        e.target.style.backgroundColor = 'white';
+    } 
+}
 
 const colorPick = document.querySelector('.color-pick');
 const colorInput = document.querySelector('.color-input');
@@ -54,7 +70,4 @@ colorInput.addEventListener('input', () => {
 const drawingTablet = document.querySelector('.drawing-tablet');
 const pixel = document.createElement('div');
 pixel.style.flexBasis = `calc(100% / ${range})`;
-pixel.addEventListener('mousedown', () => {
-    pixel.style.backgroundColor = `${color}`;
-})
 drawingTablet.appendChild(pixel)
