@@ -36,7 +36,7 @@ clearButton.addEventListener('click', () => {
 const rangeInput = document.querySelector('.range-input');
 const rangeCounter = document.querySelector('.range-selector p');
 
-rangeInput.addEventListener('input', renderDrawTable)
+rangeInput.addEventListener('input', renderDrawTablet)
 
 // handle pixel painting depending of selected button
 function changeColor(e) {
